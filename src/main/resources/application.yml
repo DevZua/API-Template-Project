@@ -19,6 +19,12 @@ spring:
     properties:
       hibernate:
         format_sql: true # SQL 이쁘게 출력
+        default_batch_fetch_size: 500 # 일대다 컬레션 조회 시 성능 최적화
+    open-in-view: false # 영속성 컨텍스트의 생존 범위를 트랜잭션 범위로 한정
+
+
+  h2:
+    database-platform: org.hibernate.dialect.H2Dialect
 
   servlet:
     multipart:
@@ -30,3 +36,7 @@ logging:
   level:
     org.hibernate.type : trace # 콘솔창 조건에 바인딩 값 및 조회 결과 출력
 
+kakao :
+  client :
+    id : # Restful 고유 키
+    secret : # 토큰 발급 시 Client Secret
